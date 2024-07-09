@@ -1,25 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+/* eslint-disable jsx-a11y/iframe-has-title */
+import React, { useState } from 'react'
 
+import ChatBot from './ChatBot'
+import ChatBotAudio from './ChatBotAudio'
+import Dictaphone from './SpeechBox'
+import ChatBotVideo from './ChatBotVideo'
+import SoloBot from './soloBot'
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const [soloMode, setSoloMode] = useState(false)
+    return (
+        <>
+            {soloMode ? (
+                <div>
+                    <SoloBot soloMode={soloMode} />
+                </div>
+            ) : (
+                <div>
+                    <iframe
+                        src="https://www.cirruslabs.io/"
+                        style={{
+                            width: '100%', // or '100%' if you want it to be fully responsive
+                            height: '100vh',
+                            border: 'none',
+                        }}
+                    ></iframe>
+                    <ChatBotVideo />
+                </div>
+            )}
+        </>
+    )
 }
 
-export default App;
+export default App
