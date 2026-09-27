@@ -10,7 +10,7 @@ editing any code.
 
 | Variable | Default | Description |
 | --- | --- | --- |
-| `REACT_APP_BACKEND_URL` | `http://localhost:8000` | Base URL of the chatbot backend. Endpoint paths (`/api/chatbot`, `/api/chatbot/cirrusLabs`, `/audio`) are appended to it. |
+| `REACT_APP_API_BASE_URL` | `http://localhost:8000` | Base URL of the chatbot backend. Endpoint paths (`/api/chatbot`, `/api/chatbot/cirrusLabs`, `/audio`) are appended to it. |
 
 To configure it locally, copy the example file and edit as needed:
 
