@@ -2,6 +2,30 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Configuration
+
+The backend base URL is read from a single build-time environment variable, so
+the same source can point at a local, staging or deployed backend without
+editing any code.
+
+| Variable | Default | Description |
+| --- | --- | --- |
+| `REACT_APP_BACKEND_URL` | `http://localhost:8000` | Base URL of the chatbot backend. Endpoint paths (`/api/chatbot`, `/api/chatbot/cirrusLabs`, `/audio`) are appended to it. |
+
+To configure it locally, copy the example file and edit as needed:
+
+```bash
+cp .env.example .env
+```
+
+Notes:
+
+- Create React App only exposes variables prefixed with `REACT_APP_`, and it
+  reads them at **build time** (`npm start` / `npm run build`) — not at runtime.
+  Rebuild after changing the value.
+- If the variable is unset, it falls back to `http://localhost:8000`, so local
+  development works with no extra setup.
+
 ## Available Scripts
 
 In the project directory, you can run:

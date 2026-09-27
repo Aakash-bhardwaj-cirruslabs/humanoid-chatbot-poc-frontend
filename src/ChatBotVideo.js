@@ -28,6 +28,7 @@ import MicOffIcon from '@mui/icons-material/MicOff'
 import VideoChatIcon from '@mui/icons-material/VideoChat'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 import ExpandLessIcon from '@mui/icons-material/ExpandLess'
+import { BACKEND_URL } from './config'
 function ChatBotVideo() {
     const [videoMode, setVideoMode] = useState(true)
     const [loading, setLoading] = useState(false)
@@ -55,7 +56,7 @@ function ChatBotVideo() {
     const fetchResponseFronBot = async (prompt) => {
         setLoading(true)
         axios
-            .post('http://localhost:8000/api/chatbot/cirrusLabs', {
+            .post(`${BACKEND_URL}/api/chatbot/cirrusLabs`, {
                 prompt: prompt,
             })
             .then((res) => {
@@ -296,7 +297,7 @@ function ChatBotVideo() {
                 })
             )
 
-            fetch('http://localhost:8080/audio', {
+            fetch(`${BACKEND_URL}/audio`, {
                 method: 'POST',
                 body: formData,
             })
@@ -339,7 +340,7 @@ function ChatBotVideo() {
     //     const formData = new FormData()
     //     formData.append('audio', audioBlob)
     //     axios
-    //         .post('http://localhost:8080/audio', formData, {
+    //         .post(`${BACKEND_URL}/audio`, formData, {
     //             headers: {
     //                 'Content-Type': 'multipart/form-data',
     //             },
