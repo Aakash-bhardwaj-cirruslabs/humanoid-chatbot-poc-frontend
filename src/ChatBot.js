@@ -13,6 +13,7 @@ import {
 } from '@mui/material'
 import Linkify from 'react-linkify'
 import axios from 'axios'
+import { BACKEND_URL } from './config'
 import AdbIcon from '@mui/icons-material/Adb'
 import PersonIcon from '@mui/icons-material/Person'
 import Fab from '@mui/material/Fab'
@@ -28,7 +29,7 @@ function ChatBot() {
     const fetchResponseFronBot = async (prompt) => {
         setLoading(true)
         axios
-            .post('http://localhost:8080/api/chatbot', { prompt: prompt })
+            .post(`${BACKEND_URL}/api/chatbot`, { prompt: prompt })
             .then((res) => {
                 console.log(res.data)
                 setMessages((currentMessages) => [
